@@ -1,7 +1,10 @@
+import os
+import dotenv
 # This example requires the 'message_content' intent.
 
 import discord
 import random
+dotenv.load_dotenv()
 class MyClient(discord.Client):
     async def on_ready(self):
         print(f'Logged on as {self.user}!')
@@ -18,7 +21,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = MyClient(intents=intents)
-client.run('MTA4MDg1ODEzNDUyNjAzMzkyMQ.G-E8eB.Xro2W-xplGiOlv8j_a83GKalevH-rDa12orieA')
+client.run(os.getenv("BOT_TOKEN"))
 
 
 
